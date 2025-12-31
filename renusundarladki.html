@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>Special Message</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #fceabb, #f8b500);
+  overflow: hidden;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 25px;
+  text-align: center;
+  max-width: 350px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  animation: fadeIn 1.5s ease;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #ffb347;
+  animation: photoPop 1.5s ease;
+}
+
+@keyframes photoPop {
+  0% { transform: scale(0); opacity: 0;}
+  60% { transform: scale(1.1); opacity: 1;}
+  100% { transform: scale(1); }
+}
+
+.title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.message {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  opacity: 0;
+  animation: textFade 3s forwards;
+  animation-delay: 1s;
+}
+
+/* floating hearts */
+.heart {
+  position: absolute;
+  bottom: -30px;
+  font-size: 20px;
+  animation: floatUp linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes textFade {
+  to { opacity: 1; }
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(-110vh) scale(1.3); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <!-- Yahan tu apni crush ka photo URL laga de -->
+  <img src="https://i.imgur.com/ABC123.jpg" alt="Photo">
+
+  <div class="title">सॉरी सॉरी सॉरी</div>
+  <div class="message">
+      यार रेनू, नए साल की ढेर सारी शुभकामनाएं, <br><br>बहोत खुस रह अपनी लाइफ में,<br> यार मगर पता नहीं तुमको याद कर के, मेरा दिल बहोत खुस होता😇,<br> मगर थोड़ा दुख भी 😐,<br> मगर कोई बात नहीं,<br> क्या करू इंसान हू मै,<br> पता नहीं क्यो उस दिन फीलिंग होल्ड नहीं कर पाया मैं 😏,<br> उसके लिए सॉरी <br>और हां,<br> ऐसे कोई अपनी फीलिंग बताये तो, रोते थोड़ी ना है पागल😅,<br> तुझे रोते देख के, मेको कितना दुःख हुआ🥺, <br>कितना गन्दा फील हुआ मुझे,<br> सायद कितना गंदा इंसान हूँ मैं,<br> खैर कोई बात नहीं, <br>मगर तुम कितनी सुन्दर लगती मुझे, हाये सारा दिन दिल थाम के बैठा रहू मै🥰, <br>सॉरी यार ,<br> हैप्पी न्यू ईयर मजे करो लाइफ में <br>
+आपन अच्छे दोस्त है ☺️<br>
+  </div>
+</div>
+
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => { heart.remove(); }, 6000);
+}
+
+// Hearts slowly float for soft effect
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
